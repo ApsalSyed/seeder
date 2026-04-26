@@ -29,6 +29,13 @@ export type Config = {
   customHeaderName: string;
 };
 
+export type Environment = {
+  id: string;
+  name: string;
+  color: string;
+  config: Config;
+};
+
 export type EntityUIState = {
   name: string;
   enabled: boolean;
