@@ -176,6 +176,7 @@ export function StepCard({
                 onChange={(r) => onChange({ ...step, request: r })}
                 onSend={() => {}} // step send is via workflow runner
                 isSending={false}
+                config={config}
               />
               <ExtractsEditor
                 extracts={step.extracts ?? []}
@@ -192,6 +193,7 @@ export function StepCard({
             <ListPickConfig
               step={step}
               onChange={onChange}
+              config={config}
             />
           )}
         </div>
@@ -351,9 +353,11 @@ function AssertionsEditor({
 function ListPickConfig({
   step,
   onChange,
+  config,
 }: {
   step: WorkflowStep;
   onChange: (s: WorkflowStep) => void;
+  config: Config;
 }) {
   const lp = step.listPick ?? {
     request: {
@@ -377,6 +381,7 @@ function ListPickConfig({
         onChange={(r) => onChange({ ...step, listPick: { ...lp, request: r } })}
         onSend={() => {}}
         isSending={false}
+        config={config}
       />
       <div className="bg-zinc-950 border border-zinc-800 rounded p-2.5 grid grid-cols-1 md:grid-cols-3 gap-2">
         <div>

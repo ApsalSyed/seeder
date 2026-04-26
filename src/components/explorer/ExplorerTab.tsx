@@ -140,8 +140,8 @@ export function ExplorerTab({ config }: Props) {
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-4 mb-4">
-        <div className="h-[600px]">
+      <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-4 mb-4">
+        <div className="h-[calc(100vh-240px)] min-h-[400px]">
           <EndpointList
             endpoints={allEndpoints}
             selectedId={selectedEndpointId}
@@ -154,6 +154,7 @@ export function ExplorerTab({ config }: Props) {
             onChange={setRequest}
             onSend={handleSend}
             isSending={isSending}
+            config={config}
             onRegenerateBody={selectedEndpointId ? handleRegenerateBody : undefined}
           />
           <ResponsePanel response={response} isSending={isSending} />
